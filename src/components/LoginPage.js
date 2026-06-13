@@ -16,7 +16,12 @@ function LoginPage() {
             }
 
             const response = await axios.post('http://localhost:8080/auth/login', { username, password });
-            console.log('Login successful:', response.data);
+			console.log("RESPONSE=", response.data);
+			
+			const token = response.data;
+			localStorage.setItem("token", token);
+			console.log("TOKEN SAVED:", token);
+			
             history('/dashboard');
         } catch (error) {
             console.error('Login failed:', error.response ? error.response.data : error.message);
