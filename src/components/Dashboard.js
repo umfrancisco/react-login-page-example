@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate} from 'react-router-dom'; // Import useHistory hook
 
-function WelcomeDashboard({ email }) {
+function WelcomeDashboard() {
     const history = useNavigate();
 
     const handleLogout = () => {
@@ -15,7 +15,6 @@ function WelcomeDashboard({ email }) {
         <div>
             <div>
                 <h2>Welcome to Dashboard</h2>
-                <p>Hello, {email}!</p>
                 <p>You are logged in successfully.</p>
                 <div>
                     <button type="button" onClick={handleLogout}>Logout</button>
