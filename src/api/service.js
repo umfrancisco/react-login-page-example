@@ -10,3 +10,6 @@ export const getHello = () => {
     },
   });
 };
+
+// GET logout
+export const logout = () => apiService.get("/auth/logout");

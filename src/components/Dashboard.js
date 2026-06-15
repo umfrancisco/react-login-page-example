@@ -1,7 +1,7 @@
 // WelcomeDashboard.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useHistory hook
-import { getHello } from '../api/service'
+import { getHello, logout } from '../api/service'
 
 function WelcomeDashboard() {
 	const [hello, setHello] = useState([]);
@@ -15,10 +15,21 @@ function WelcomeDashboard() {
     const history = useNavigate();
 
     const handleLogout = () => {
-        // Perform logout actions here (e.g., clear session, remove authentication token)
-        // After logout, redirect to the login page
+		logout();
+		console.log("logout method called");
         history('/');
     };
+	
+	if (hello === -1) {
+		return (
+			<div>
+			    <div>
+			        <h2>Welcome to Dashboard</h2>
+			        <p>not a user</p>
+			    </div>
+			</div>
+		);
+	}
 
     return (
         <div>
